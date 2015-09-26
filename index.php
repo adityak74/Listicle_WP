@@ -39,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="index.php">
 
 					Aasya Health Foundation
 
@@ -47,13 +47,13 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#home">HOME</a></li>
+					<!--<li><a href="#home">HOME</a></li>-->
 					<li><a href="#contact">ABOUT US</a></li>
 					<li><a href="#work">WHERE WE WORK</a></li>
 					<li><a href="#grid">WHAT WE DO</a></li>
 					<li><a href="#services">GET INVOLVED</a></li>
 					<li><a href="#team">TEAM</a></li>
-					
+					<li><a href="#contactUs">CONTACT US</a></li>
 				</ul>
 			</div>
 
@@ -494,7 +494,7 @@
 	<!--SERVICE SECTION END-->
 
 	<!--TEAM SECTION START-->
-	<section id="team" >
+	<section id="services" >
 		<div class="container">
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -568,6 +568,40 @@
 		</div>
 	</section>
 	<!--TEAM SECTION END-->
+
+	<section id="contactUs">
+		<div class="container">
+			<div class="row animate-in" data-anim-type="fade-in-up">
+				
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="services-wrapper">
+							<i class="ion-document"></i>
+							<h3>Contact Us</h3>
+							<div class="contact-area">
+							<form class="contact-form" action="" method="post">
+							<input style="background-color: rgba(0, 0, 0, 0.4);width:100%;border:1px solid #f5f5f5;padding:5px;border-radius: 5px 5px 0 0;" id="name" tabindex="1" size="22" type="text" value="" placeholder="Name" /><br><br>
+							<input style="background-color: rgba(0, 0, 0, 0.4);width:100%;border:1px solid #f5f5f5;padding:5px;border-radius: 5px 5px 0 0;" id="email" tabindex="2" size="22" type="text" value="" placeholder="Email" /><br><br>
+							<textarea style="background-color: rgba(0, 0, 0, 0.4);width:100%;border:1px solid #f5f5f5;padding:5px;border-radius: 5px 5px 0 0;" id="message" cols="39" name="message" rows="7" placeholder="Your Opinions Please"></textarea><br><br>
+							<input style="background-color: rgba(0, 0, 0, 0.4);border-color: transparent;padding:7px;border-radius: 5px 5px 0 0;" id="submit" type="button" value="Submit" /><br><br><br><br>
+							</form>
+							</div>    
+							</div>
+					</div>
+				
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="services-wrapper">
+							<h4>Locate Us</h4>
+							<div class="map">
+							<figure class=" ">
+								<iframe style="min-height:500px;overflow: hidden; height: 100%;width: 100%;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="100%" src="https://maps.google.com/maps?hl=en&q=Malkajgiri - Neredmet Rd Mystry Place, Malkajgiri Secunderabad, Telangana 500056&ie=UTF8&t=roadmap&z=17&iwloc=B&output=embed"><div><small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://premiumlinkgenerator.com/nitroflare-org">nitroflare premium link generator</a></small></div></iframe>
+							</figure>
+						</div>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+	</section>
 	
 
 	
