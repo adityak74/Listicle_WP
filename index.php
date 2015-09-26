@@ -8,7 +8,7 @@
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <![endif]-->
-<title>LIGHT WAVE</title>
+<title>Aasya Health Foundation</title>
 <!-- BOOTSTRAP CORE CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <!-- ION ICONS STYLES -->
@@ -27,6 +27,7 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 </head>
 <body data-spy="scroll" data-target="#menu-section">
 	<!--MENU SECTION START-->
@@ -40,7 +41,7 @@
 				</button>
 				<a class="navbar-brand" href="#">
 
-					LIGHT WAVE
+					Aasya Health Foundation
 
 				</a>
 			</div>
@@ -115,7 +116,7 @@
 						<a href="#" class="btn button-custom btn-custom-one" ><i class="fa fa-pinterest "></i></a>
 						<a href="#" class="btn button-custom btn-custom-one" ><i class="fa fa-github "></i></a>
 					</div>
-					<a href="#services" class=" btn button-custom btn-custom-two">See Service List </a>
+					<a href="#services" class=" btn button-custom btn-custom-two">Donate</a>
 				</div>
 			</div>
 		</div>
@@ -226,11 +227,13 @@
 							$evnt = "evnt";
 							$events=1;
 							foreach ($eventTitleArray as $title) {
-								# code...
 							
-						?>
-							<a href="#" data-filter=".<?php echo $evnt.$events; ?>" style="margin:5px" class="btn btn-custom btn-custom-two btn-sm"><?php echo $title; ?></a>
-						<?php
+							if($events==1)
+								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-sm active">'.$title.'</a>';
+							else
+								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-sm">'.$title.'</a>';
+							
+
 							$events++;
 							}
 						?>
@@ -265,7 +268,7 @@
 												<div class='work-wrapper'>
 
 													<a class='fancybox-media' title='Image Title Goes Here' href='".$imageLink."'>
-
+														
 														<img src='".$imageLink."' class='img-responsive img-rounded' alt='' />
 													</a>
 

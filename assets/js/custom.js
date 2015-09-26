@@ -72,7 +72,7 @@ FILTER FUNCTIONALITY SCRIPTS
 $(window).load(function () {
 var $container = $('#work-div');
 $container.isotope({
-filter: '*',
+filter: '.evnt1',
 animationOptions: {
 duration: 750,
 easing: 'linear',
