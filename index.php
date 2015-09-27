@@ -186,8 +186,9 @@
 							consectetur tellus nec, porttitor nulla.
 						</p>
 						<div class="social-below">
-							<a href="#" class="btn button-custom btn-custom-two" > Intern With Us</a>
-							<a href="#" class="btn button-custom btn-custom-two" > Volunteer</a>
+							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#intern ;">Intern</button>
+							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#volunteer ;">Volunteer</button>
+
 						</div>
 					</div>
 
@@ -200,7 +201,6 @@
 		</div>
 	</section>
 	<!--CONTACT SECTION END-->
-
 	<!--WORK SECTION START-->
 	<section id="work" >
 		<div class="container">
@@ -300,117 +300,33 @@
 
 				</div>
 			</div>
+
 			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Disease Awarenes</h2>
-					<p>Content About Disease Awareness
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Adult Literacy</h2>
-					<p>Content about Adult Literacy
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Citizen Advocacy</h2>
-					<p>Content about Citizen Advocacy 
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Blood Donation</h2>
-					<p>Content about Blood Donation 
-					</p>
-
-				</div>
-			</div>
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
+			<?php
+			$count=1;
+			$json_a=json_decode(file_get_contents("whatwedo.json"));
+			foreach ($json_a as $key => $value){
+			?>
+			
+			
+				<a href="content.php?id=<?php echo $value; ?>" style="color:white;">
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					<h2>Affordable Medical Testing</h2>
-					<p>Content About this</p>
+					<h2><?php echo $value; ?></h2>
+					<p>Content About <?php echo $value ?>
+					bi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+							bi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
 
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					<h2>Research and Development</h2>
-					<p>Content About this.
 					</p>
 
 				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					<h2>Child and Women Protection</h2>
-					<p>Content About this.
-					</p>
+				</a>
 
-				</div>
-
-			</div>
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<h2>Organ Donation Pledge Drives</h2>
-					<p>Content About Organ Donation</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<h2>Food Nourishment Activities</h2>
-					<p>Content About Nourishment 
-					</p>
-
-				</div>
-
-
-			</div>
-
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<h2>Rehab of acid, rape, accident victims</h2>
-					<p>Content About this</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					<h2>Pet adoption and rescue</h2>
-					<p>Content About this 
-					</p>
-
-				</div>
-
-
-			</div>
-
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Legal Clinic</h2>
-					<p>Content About this.
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Awareness Campaigns</h2>
-					<p>Content about.
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>De-Addiction</h2>
-					<p>Content about this. 
-					</p>
-
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<h2>Agricultural Testing</h2>
-					<p>Content about this. 
-					</p>
-
-				</div>
-			</div>
-
-
+			<?php
+			}
+			?>
+			</div>	
 
 		</div>
 	</section>
@@ -494,42 +410,42 @@
 	<!--SERVICE SECTION END-->
 
 	<!--TEAM SECTION START-->
-	<section id="services" >
+	<section id="team" >
 		<div class="container">
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h3>Team Members </h3>
+					<h3>Meet the Brains behind AASYA</h3>
 					<hr />
 				</div>
 			</div>
-			<div class="row animate-in" data-anim-type="fade-in-up">
+			<div class="row animate-in" data-anim-type="fade-in-up">2
 
-				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					<div class="team-wrapper">
-						<div class="team-inner" style="background-image: url('assets/img/team/1.jpg')" >
-							<a href="#" target="_blank" > <i class="fa fa-twitter" ></i></a>
-						</div>
-						<div class="description">
-							<h3> Leomarid Jona</h3>
-							<h5> <strong> Developer & Designer </strong></h5>
-							<p>
-								Pellentesque elementum dapibus convallis.
-								Vivamus eget finibus massa.
-							</p>
-						</div>
-					</div>
-				</div>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<div class="team-wrapper">
 						<div class="team-inner" style="background-image: url('assets/img/team/2.jpg')" >
 							<a href="#" target="_blank" > <i class="fa fa-twitter" ></i></a>
 						</div>
 						<div class="description">
-							<h3> Leomarid Jona</h3>
+							<h3> Sai Sugun L</h3>
+							<h5> <strong> Vice President </strong></h5>
+							<p>
+								An Electronics major from the Sreenidhi Institute of Science and Technology,. He was an Intel Science Fair And Engineering Fair (ISEF )Silver Medalist, ranking 11th across the nation. His team was one among the top six finalist at TCS IT Wiz 2013 held at Hyderabad . An alumni of the prestigious Delhi Public School, he is determined to contribute to society based on the motto of the school – “Service before Self”.
+
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<div class="team-wrapper">
+						<div class="team-inner" style="background-image: url('assets/img/team/1.jpg')" >
+							<a href="#" target="_blank" > <i class="fa fa-twitter" ></i></a>
+						</div>
+						<div class="description">
+							<h3> Sree Ram</h3>
 							<h5> <strong> Developer & Designer </strong></h5>
 							<p>
-								Pellentesque elementum dapibus convallis.
-								Vivamus eget finibus massa.
+								Sree Ram, an MCA student of the Sreenidhi Institute of Science and Technology,Hyderabad foundedthe AASYA Health Foundation in early 2015. His co- founders would later go on to form the backbone of the organisation. 
 							</p>
 						</div>
 					</div>
@@ -540,11 +456,10 @@
 							<a href="#" target="_blank" > <i class="fa fa-twitter" ></i></a>
 						</div>
 						<div class="description">
-							<h3> Leomarid Jona</h3>
+							<h3> Madhukar Reddy</h3>
 							<h5> <strong> Developer & Designer </strong></h5>
 							<p>
-								Pellentesque elementum dapibus convallis.
-								Vivamus eget finibus massa.
+								Madhukar Reddy heads the Padmasri Dr. B. V. Raju Institute of Technology chapter, one of the first student chapters.
 							</p>
 						</div>
 					</div>
@@ -555,11 +470,10 @@
 							<a href="#" target="_blank" > <i class="fa fa-twitter" ></i></a>
 						</div>
 						<div class="description">
-							<h3> Leomarid Jona</h3>
-							<h5> <strong> Developer & Designer </strong></h5>
+							<h3> Dayanidhi Krishna</h3>
+							<h5> <strong> Chennai Branch President </strong></h5>
 							<p>
-								Pellentesque elementum dapibus convallis.
-								Vivamus eget finibus massa.
+								Dayanidhi Krishna serves as the president of the newly inaugurated Chennai chapter. A diligent debater, Krishna is also a ICTACT regional finalist. He is currently pursuing his Bachelor in Technology in Computer Science from VIT University. He gave a presentation on his vision of a Digital India at ICTACT, in an attempt to enhance the role of student involvement in the area of Cyber Governance in the country. 
 							</p>
 						</div>
 					</div>
