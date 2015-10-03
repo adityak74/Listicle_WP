@@ -303,16 +303,20 @@
 
 			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
 			<?php
-			$count=1;
-			$json_a=json_decode(file_get_contents("whatwedo.json"));
-			foreach ($json_a as $key => $value){
+			include 'connection.php';
+			$query = 'select distinct heading from articles';
+			$result = mysql_query($query);
+			$count = mysql_num_rows($result);
+			$result = mysql_fetch_array($result);
+			
+			for ($i=0;$i<$count;$i++){
 			?>
 			
 			
-				<a href="content.php?id=<?php echo $value; ?>" style="color:white;">
+				<a href="content.php?id=<?php echo $result[$i]; ?>" style="color:white;">
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					<h2><?php echo $value; ?></h2>
-					<p>Content About <?php echo $value ?>
+					<h2><?php echo $result[$i]; ?></h2>
+					<p>Content About <?php echo $result[$i]; ?>
 					bi mollis lectus et ipsum sollicitudin varius.
 							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
 							bi mollis lectus et ipsum sollicitudin varius.

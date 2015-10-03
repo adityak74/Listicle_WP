@@ -45,6 +45,18 @@ delete($target);//upload the content in the database and delete the file later o
 
 <html>
 <head>
+<style>
+	body{
+		background-color: #f5f5f5;
+	}
+	form{
+		text-align: center;
+		padding: 20px;
+		border-radius: 20px;
+		border: 1px solid #ccc;
+		box-shadow: 1px 1px 1px #111;
+	}
+</style>
 <script>
 var created=1;
 
