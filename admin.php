@@ -1,7 +1,7 @@
 <?php
 //Database name=aasya table name=content;
 
-if($_POST['submit'])
+if(isset($_POST['submit']))
 {
 $articlename=$_POST['articlename'];
 $articleauthorname=$_POST['articleauthorname'];
@@ -17,9 +17,10 @@ else
 	//update the new heading in the json file also;
 	$file = json_decode(file_get_contents('whatwedo.json'),true);
 	unset($file);
-	$data[] = array(++count($file) => $articleheading);
-	$result=json_encode($data);
-	file_put_contents('whatwedo.json', $result);
+	echo count($file);
+	//$data[] = array(++count($file) => $articleheading);
+	//$result=json_encode($data);
+	//file_put_contents('whatwedo.json', $result);
 }
 
 
@@ -39,7 +40,7 @@ echo $timestamp->getTimestamp();
 //table.
 
 //0 is for not verified //create table columns in the same order as over here.
-$insertquerry=mysql_query("insert into content values('$articleheading','$articleauthorname','$articleauthormail','$articleheading','$articlecontent',0,$timestamp)"); or die("insert querry fail");
+$insertquerry=mysql_query("insert into content values('$articleheading','$articleauthorname','$articleauthormail','$articleheading','$articlecontent',0,$timestamp)") or die("insert querry fail");
 
 
 delete($target);//upload the content in the database and delete the file later on to save space
@@ -62,7 +63,7 @@ newchild.appendChild(mi);
 document.getElementById("oldheading").display="none";//hide the dropdown menu after the child is append in the div block
 }
 </script>
-</head>>
+</head>
 <body>
 
 <form name="contentupload" enctype="multipart/form-data" action="" method="post">
@@ -70,7 +71,7 @@ document.getElementById("oldheading").display="none";//hide the dropdown menu af
 <buttton type="buttton" value="newheading" onclick="createheading()">Create New Heading</buttton>
 
 <?php
-inlcude_once 'connection.php';
+include_once 'connection.php';
 $querry=mysql_query("select distinct Heading_Name from content");
 if(!$querry)
 	echo "heading name fetch fail";
