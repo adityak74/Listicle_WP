@@ -48,6 +48,8 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+
+
 </head>
 <body data-spy="scroll" data-target="#menu-section">
 	<!--MENU SECTION START-->
@@ -208,27 +210,131 @@
 						<div class="social-below">
 							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#intern">Intern</button>
 							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#volunteer">Volunteer</button>
+							
 							<div class="modal fade" id="intern" role="dialog" style="color:#000;">
-						    <div class="modal-dialog">
-						    
-						      <!-- Modal content-->
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Modal Header</h4>
-						        </div>
-						        <div class="modal-body">
-						          <p>Some text in the modal.</p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        </div>
-						      </div>
-						      
-						    </div>
-						  </div>
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Apply for Internship</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>Please fill the form.We will get back to you soon.</p>
+							          <form id="internForm">
+							          	<div class="form-group">
+							          		<input class="form-control ipname" id="name" name="name" type="text" placeholder="Enter your name" required>
+							          	</div>
+							          	<div class="form-group">
+							          		<input class="form-control ipphone" id="phone" name="phone" min="9000000000" max="9999999999" type="number" placeholder="Enter your contact number" required>
+							          	</div>
+							          	<div class="form-group">
+							          		<input class="form-control ipemail" id="email" name="email" type="email" placeholder="Enter your e-mail">
+							          	</div>
+							          	<div class="form-group">
+							          		<input type="button" class="btn btn-submit FormSubmitButton" name="submit" value="Submit">
+							          	</div>
+							          	<div class="form-group">
+							          		<input type="hidden" class="ipposition" name="position" value="0">
+							          	</div>
+							          </form>
+							          
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+						  	</div>
+
+						  	<div class="modal fade" id="volunteer" role="dialog" style="color:#000;">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Apply for Volunteering</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>Please fill the form.We will get back to you soon.</p>
+							          <div>
+							          	<div class="form-group">
+							          		<input class="form-control ipname" id="name" name="name" type="text" placeholder="Enter your name" required>
+							          	</div>
+							          	<div class="form-group">
+							          		<input class="form-control ipphone" id="phone" name="phone" type="number" min="9000000000" max="9999999999" placeholder="Enter your contact number" required>
+							          	</div>
+							          	<div class="form-group">
+							          		<input class="form-control ipemail" id="email" name="email" type="email" placeholder="Enter your e-mail">
+							          	</div>
+							          	<div class="form-group">
+							          		<input type="button" class="btn btn-submit FormSubmitButton" name="submit" value="Submit">
+							          	</div>
+							          	<div class="form-group">
+							          		<input type="hidden" class="ipposition" name="position" value="1">
+							          	</div>
+							          </div>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+						  	</div>
 						</div>
 						<!-- Modal -->
+						<script type="text/javascript">
+										$(".FormSubmitButton").click(function(ev) {
+
+									    
+									    var name = $(this).parent().parent().find('.ipname').val();
+										var phone = parseInt($(this).parent().parent().find('.ipphone').val());
+										var email = $(this).parent().parent().find('.ipemail').val();
+										var position = $(this).parent().parent().find('.ipposition').val();
+
+										if(name==""||phone<9000000000||phone>9999999999||email=="")
+										{
+											alert("Please fill the details correctly");
+										}else{
+											$.ajax({
+												url: "sm.php",
+												method: "POST",
+												data: 'name='+name+'&phone='+phone+'&email='+email+'&position='+position+'',
+												success: function(data){
+													alert(data);
+												},
+												error: function(jqXHR, exception) {
+											             var msg = '';
+											        if (jqXHR.status === 0) {
+											            msg = 'Not connect.\n Verify Network.';
+											        } else if (jqXHR.status == 404) {
+											            msg = 'Requested page not found. [404]';
+											        } else if (jqXHR.status == 500) {
+											            msg = 'Internal Server Error [500].';
+											        } else if (exception === 'parsererror') {
+											            msg = 'Requested JSON parse failed.';
+											        } else if (exception === 'timeout') {
+											            msg = 'Time out error.';
+											        } else if (exception === 'abort') {
+											            msg = 'Ajax request aborted.';
+											        } else {
+											            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+											        }
+											        
+											        alert(msg);
+											        
+											        }
+											});
+										}
+										
+									    ev.preventDefault();
+									    return true; // avoid to execute the actual submit of the form.
+									});	
+									</script>
 						  
 					</div>
 
