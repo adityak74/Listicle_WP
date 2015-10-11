@@ -21,6 +21,26 @@
 <link href="assets/css/animations.min.css" rel="stylesheet" />
 <!-- CUSTOM CSS -->
 <link href="assets/css/style-green.css" rel="stylesheet" />
+
+<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
+<!-- CORE JQUERY -->
+<script src="assets/js/jquery-1.11.1.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="assets/js/bootstrap.js"></script>
+<!-- EASING SCROLL SCRIPTS PLUGIN -->
+<script src="assets/js/vegas/jquery.vegas.min.js"></script>
+<!-- VEGAS SLIDESHOW SCRIPTS -->
+<script src="assets/js/jquery.easing.min.js"></script>
+<!-- FANCYBOX PLUGIN -->
+<script src="assets/js/source/jquery.fancybox.js"></script>
+<!-- ISOTOPE SCRIPTS -->
+<script src="assets/js/jquery.isotope.js"></script>
+<!-- VIEWPORT ANIMATION SCRIPTS   -->
+<script src="assets/js/appear.min.js"></script>
+<script src="assets/js/animations.min.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="assets/js/custom.js"></script>
+
 <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -186,10 +206,30 @@
 							consectetur tellus nec, porttitor nulla.
 						</p>
 						<div class="social-below">
-							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#intern ;">Intern</button>
-							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#volunteer ;">Volunteer</button>
-
+							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#intern">Intern</button>
+							<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#volunteer">Volunteer</button>
+							<div class="modal fade" id="intern" role="dialog" style="color:#000;">
+						    <div class="modal-dialog">
+						    
+						      <!-- Modal content-->
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Modal Header</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p>Some text in the modal.</p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						  </div>
 						</div>
+						<!-- Modal -->
+						  
 					</div>
 
 				</div>
@@ -522,24 +562,7 @@
 	
 
 	
-	<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
-	<!-- CORE JQUERY -->
-	<script src="assets/js/jquery-1.11.1.js"></script>
-	<!-- BOOTSTRAP SCRIPTS -->
-	<script src="assets/js/bootstrap.js"></script>
-	<!-- EASING SCROLL SCRIPTS PLUGIN -->
-	<script src="assets/js/vegas/jquery.vegas.min.js"></script>
-	<!-- VEGAS SLIDESHOW SCRIPTS -->
-	<script src="assets/js/jquery.easing.min.js"></script>
-	<!-- FANCYBOX PLUGIN -->
-	<script src="assets/js/source/jquery.fancybox.js"></script>
-	<!-- ISOTOPE SCRIPTS -->
-	<script src="assets/js/jquery.isotope.js"></script>
-	<!-- VIEWPORT ANIMATION SCRIPTS   -->
-	<script src="assets/js/appear.min.js"></script>
-	<script src="assets/js/animations.min.js"></script>
-	<!-- CUSTOM SCRIPTS -->
-	<script src="assets/js/custom.js"></script>
+	
 </body>
 
 </html>
