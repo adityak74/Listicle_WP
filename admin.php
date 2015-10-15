@@ -1,135 +1,511 @@
 <?php
-//Database name=aasya table name=content;
+include 'connection.php';
 
-if(isset($_POST['submit']))
+$unapprovedquerry=mysql_query("select * from articles where verified=0");
+$approvedquerystats = mysql_query("select * from articles where verified=1");
+$totalauthorsstats = mysql_query("select * from authorsdetails");
+
+$approvedarticles = mysql_num_rows($approvedquerystats);
+$unapprovedarticles = mysql_num_rows($unapprovedquerry);
+$totalarticles = $approvedarticles + $unapprovedarticles;
+$totalauthors = mysql_num_rows($totalauthorsstats);
+
+if(isset($_POST['create']))
 {
-	$articleName=$_POST['articlename'];
-	$articleAuthorName=$_POST['articleauthorname'];
-	$articleAuthorMail=$_POST['articleauthoremail'];
+	$username=$_POST['username'];
+	$userpass=$_POST['userpass'];
 
-	if(isset($_POST['tgl']) && $_POST['tgl']==1){
-		$articleHeading=$_POST['newheading'];
+	$createquerry=mysql_query("insert into authorsdetails (auth_username,auth_password,timestamp) values ('$username','$userpass',now())");
+	if($createquerry)
+	{
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('New author has been added');";
+		echo "</script>";
 	}
-	else{
-		$articleHeading=$_POST['heading'];
+	else 
+	{
+		echo "<script language='javascript' type='text/javascript'>";
+		echo "alert('Author create error');";
+		echo "</script>";
 	}
 
-
-
-	//upload the file in the respective directory
-	$target="uploads/".$_FILES['fu']['name'];
-	move_uploaded_file($_FILES['fu']['tmp_name'],$target);
-	$articleContent=file_get_contents($target);
-
-	//author email id is needed so that in a seperate page where the contents are reviewed by admin if he see that any article needs 
-	//correction then that article will be sent as a mail to that particular author as an attachment and that row will be deleted from the
-	//table.
-	include 'connection.php';
-	echo $articleHeading . "<br>";	
-	echo $articleAuthorName . "<br>";
-	echo $articleAuthorMail . "<br>";
-	echo $articleName . "<br>";
-	echo $articleContent . "<br>";
-	//0 is for not verified //create table columns in the same order as over here.
-	$query = "INSERT INTO articles(heading,auth_name,auth_email,article_heading,content,verified) 
-	          VALUES('$articleHeading','$articleAuthorName','$articleAuthorMail','$articleName',
-	          	     '$articleContent',0)";
-	$insertquerry=mysql_query($query) or die(mysql_query());
-
-
-unlink($target);//upload the content in the database and delete the file later on to save space
-echo "Done";
 }
+
 ?>
 
 
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
 <head>
-<style>
-	body{
-		background-color: #f5f5f5;
-	}
-	form{
-		text-align: center;
-		padding: 20px;
-		border-radius: 20px;
-		border: 1px solid #ccc;
-		box-shadow: 1px 1px 1px #111;
-	}
-</style>
-<script>
-var created=1;
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<!--[if IE]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+	<title>Aasya Health Foundation</title>
+	<!-- BOOTSTRAP CORE CSS -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+	<!-- ION ICONS STYLES -->
+	<link href="assets/css/ionicons.css" rel="stylesheet" />
+	<!-- FONT AWESOME ICONS STYLES -->
+	<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	<!-- FANCYBOX POPUP STYLES -->
+	<link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
+	<!-- STYLES FOR VIEWPORT ANIMATION -->
+	<link href="assets/css/animations.min.css" rel="stylesheet" />
+	<!-- CUSTOM CSS -->
+	<link href="assets/css/style-green.css" rel="stylesheet" />
 
-function reset(){
-	document.getElementById("newchild").style.display='none';
-}
 
-function createheading()
-{	//if a new heading is needed to upload the content then you need to use this function.
-	var toggle = document.getElementById('tgl');
-	var toggleButton = document.getElementById('tgbt');
-	if(!parseInt(toggle.value)){
-		toggle.setAttribute('value','1');
-		toggleButton.setAttribute('value','Select from Headings');
-		document.getElementById("newchild").style.display='inherit';
-		if(created==1){
-		var mi = document.createElement("input");
-		mi.setAttribute('type', 'text');
-		mi.setAttribute('name', 'newheading');
-		mi.setAttribute('placeholder','Enter the new heading')
-		document.getElementById("newchild").appendChild(mi);
-		created++;
-		}
-		document.getElementById("oldheading").style.display='none';//hide the dropdown menu after the child is append in the div block
-	}else{
-		toggle.setAttribute('value','0');
-		document.getElementById("newchild").style.display='none';
-		document.getElementById("oldheading").style.display='inherit';
-		toggleButton.setAttribute('value','Create New Heading');
-	}
-}
+	<!-- CORE JQUERY -->
+	<script src="assets/js/jquery-1.11.1.js"></script>
+	<!-- BOOTSTRAP SCRIPTS -->
+	<script src="assets/js/bootstrap.js"></script>
+	<!-- EASING SCROLL SCRIPTS PLUGIN -->
+	<script src="assets/js/vegas/jquery.vegas.min.js"></script>
+	<!-- VEGAS SLIDESHOW SCRIPTS -->
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<!-- FANCYBOX PLUGIN -->
+	<script src="assets/js/source/jquery.fancybox.js"></script>
+	<!-- ISOTOPE SCRIPTS -->
+	<script src="assets/js/jquery.isotope.js"></script>
+	<!-- VIEWPORT ANIMATION SCRIPTS   -->
+	<script src="assets/js/appear.min.js"></script>
+	<script src="assets/js/animations.min.js"></script>
+	<!-- CUSTOM SCRIPTS -->
+	<script src="assets/js/custom.js"></script>
+
+	<!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]-->
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('.approvebtn').click(function(){
+			articleId = $(this).parent().parent().find('.aid').val();
+			btnname = $(this).html();
+			alert(articleId + "," + btnname);
+
+			$.ajax({
+			url: "action_admin.php",
+			method: "POST",
+			data: 'articleid='+articleId+'&action='+btnname+'',
+			success: function(data){
+				alert(data);
+			},
+			error: function(jqXHR, exception) {
+		             var msg = '';
+		        if (jqXHR.status === 0) {
+		            msg = 'Not connect.\n Verify Network.';
+		        } else if (jqXHR.status == 404) {
+		            msg = 'Requested page not found. [404]';
+		        } else if (jqXHR.status == 500) {
+		            msg = 'Internal Server Error [500].';
+		        } else if (exception === 'parsererror') {
+		            msg = 'Requested JSON parse failed.';
+		        } else if (exception === 'timeout') {
+		            msg = 'Time out error.';
+		        } else if (exception === 'abort') {
+		            msg = 'Ajax request aborted.';
+		        } else {
+		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		        }
+		        
+		        alert(msg);
+		        
+		        }
+		});
+
+		});
+
+		$('.discardbtn').click(function(){
+			articleId = $(this).parent().parent().find('.aid').val();
+			btnname = $(this).html();
+			alert(articleId + "," + btnname);
+
+			$.ajax({
+			url: "action_admin.php",
+			method: "POST",
+			data: 'articleid='+articleId+'&action='+btnname+'',
+			success: function(data){
+				alert(data);
+			},
+			error: function(jqXHR, exception) {
+		             var msg = '';
+		        if (jqXHR.status === 0) {
+		            msg = 'Not connect.\n Verify Network.';
+		        } else if (jqXHR.status == 404) {
+		            msg = 'Requested page not found. [404]';
+		        } else if (jqXHR.status == 500) {
+		            msg = 'Internal Server Error [500].';
+		        } else if (exception === 'parsererror') {
+		            msg = 'Requested JSON parse failed.';
+		        } else if (exception === 'timeout') {
+		            msg = 'Time out error.';
+		        } else if (exception === 'abort') {
+		            msg = 'Ajax request aborted.';
+		        } else {
+		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		        }
+		        
+		        alert(msg);
+		        
+		        }
+		});
+		});
+
+	$(".authcreatebtn").click(function(){
+			uname = $(this).parent().find('.uname').val();
+			upass = $(this).parent().find('.upass').val();
+			name = $(this).parent().find('.name').val();
+			email = $(this).parent().find('.email').val();
+
+			if(uname=='' || upass=='' || name=='' || email==''){
+				alert("Can't be empty");
+			}else{
+				//alert(uname + "," + upass);
+				$.ajax({
+			url: "action_admin.php",
+			method: "POST",
+			data: 'uname='+uname+'&upass='+upass+'&name='+name+'&email='+email+'',
+			success: function(data){
+				alert(data);
+			},
+			error: function(jqXHR, exception) {
+		             var msg = '';
+		        if (jqXHR.status === 0) {
+		            msg = 'Not connect.\n Verify Network.';
+		        } else if (jqXHR.status == 404) {
+		            msg = 'Requested page not found. [404]';
+		        } else if (jqXHR.status == 500) {
+		            msg = 'Internal Server Error [500].';
+		        } else if (exception === 'parsererror') {
+		            msg = 'Requested JSON parse failed.';
+		        } else if (exception === 'timeout') {
+		            msg = 'Time out error.';
+		        } else if (exception === 'abort') {
+		            msg = 'Ajax request aborted.';
+		        } else {
+		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		        }
+		        
+		        alert(msg);
+		        
+		        }
+				});
+			}
+	});
+
+	});
 </script>
 </head>
-<body onload="reset()">
-<center>
-	<form name="contentupload" enctype="multipart/form-data" action="" method="post">
 
-		<input id="tgl" name="tgl" type="hidden" value="0">
-		<input id="tgbt" type="button" value="Create New Heading" onclick="createheading()">
-		<hr>
-		<?php
-		include_once 'connection.php';
-		$querry=mysql_query("select distinct heading from articles");
-		if(!$querry)
-			echo "heading name fetch fail";
-		else{
-			$totalHeadings = mysql_num_rows($querry);
-		?>
-		<select id="oldheading" name="heading" style="margin:0 auto;"> Heading Name:
-			<?php
-			while($row = mysql_fetch_array($querry))
-			{
-				?>
-				<option><?php echo $row[0]?></option>
-				<?php
-			}
-			?>
-		</select> 
-		<?php
-		}
-		?>
 
-		<div id="newchild">
+
+<body data-spy="scroll" data-target="#menu-section" window.onload="hideform();">
+
+
+
+
+	<div class="navbar navbar-inverse navbar-fixed-top scroll-me" id="menu-section" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="admin.php">
+					Aasya Health Foundation Administration
+				</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#contact">Dashboard</a></li>
+					<li><a href="#work">Approve Post</a></li>
+					<li><a href="#grid">Create Authors</a></li>
+				</ul>
+			</div>
 
 		</div>
-		<hr>
+	</div>
 
-		Article Name: <input type="text" name="articlename" placeholder="Enter the Article Name" pattern="[A-Za-z0-9]+{20}"><br>
-		Article Author Name: <input type="text" name="articleauthorname" placeholder="Enter the Author Name" pattern="[A-Za-z0-9]+{20}"><br>
-		Article Author email: <input type="email" name="articleauthoremail"  placeholder="Enter the Author Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ><br>
-		<input type="file" name="fu"><br>
-		<input type="submit" name="submit" value="submit">
-	</form>
-</center>
+	<section id="contact" >
+		<div class="container">
+
+			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h1>DASHBOARD</h1>	
+					<p>Ye tu kar be jo jo statistics dikhana hai yaha mar de is format me </p>
+					<hr />
+				</div>
+			</div>
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+					<div class="row db-padding-btm db-attached">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="light-pricing">
+								<div class="price">
+									<?php 
+										echo $totalarticles;
+									?>
+								</div>
+								<div class="type">
+									Articles
+								</div>
+								<ul>
+
+									<li><i class="glyphicon glyphicon-print"></i>Unnaproved : <?php echo $unapprovedarticles; ?></li>
+									<li><i class="glyphicon glyphicon-time"></i>Approved : <?php echo $approvedarticles; ?></li>
+									
+								</ul>
+								
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div class="light-pricing">
+								<div class="price">
+									<?php
+										echo $totalauthors;
+									?>
+								</div>
+								<div class="type">
+									Authors
+								</div>
+								<ul>
+
+									<li><i class="glyphicon glyphicon-print"></i>30+ Accounts </li>
+									<li><i class="glyphicon glyphicon-time"></i>150+ Projects </li>
+									
+								</ul>
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<!--DASHBOARD SECTION END-->
+
+
+
+			<section id="work">
+				<div class="container">
+					<div class="row animate-in" data-anim-type="fade-in-up">
+						<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h3>Unnaproved Post</h3>
+								<hr />
+							</div>
+						</div>
+						<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+							<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+								
+								
+
+								<table class="table table-striped" id="utable">            
+									<thead>
+										<tr>
+											<th>Topic</th>
+											<th>Author Name</th>
+											<th>Author Email</th>
+											<th>Verify</th>
+										</tr>
+									</thead>
+
+
+									<?php
+									while($row = mysql_fetch_array($unapprovedquerry)){
+
+									//echo '<script type="text/javascript">alert("'.$row['auth_name'].$row['auth_email'].'");</script>';
+
+										?>
+
+										<tbody>
+											<tr>
+								<!--
+								Each row is a form which displays only   Topicheading & author name & Author Email id. 
+								Read the code. I have there is one input field whose value is the "id" of that article
+								Since each row is a form, when the admin will click the "read" button which is a input button
+								the modal box will be opened and isset($_POST['read']) is used so that that particular form/row's 
+								content(id and article heading and article content) are transfered to that modal box. 
+								In Modal box only Article heading and Article content are displayed 
+								"id" is still hidden.
+								So again when the user will click "verify" or "discard" the control is transfered to top php
+							-->
+							<div id="readform">
+								<td style="color:black;"><?php echo $row['heading']; ?></td>  
+
+								<?php
+
+									$authquery = mysql_query("select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid']);
+									$authqueryresults = mysql_fetch_assoc($authquery);
+									//echo "select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid'];
+
+								?>
+
+								<td style="color:black;"><?php echo $authqueryresults['auth_name']; ?></td>  
+								<td style="color:black;"><?php echo $authqueryresults['auth_email']; ?></td> 
+								<input type="hidden" name="articleheading" value="<?php echo $row['article_heading'];?>">
+								<input type="hidden" name="verifycontent" value="<?php echo $row['content'];?>">
+								<input type="hidden" name="uniqueid" value="<?php echo $row['id'];?>">
+								
+
+								<?php echo '<td><button class="btn btn-default" id= "read" name="read" data-toggle="modal" data-target=#modal_show'.$row['id'].'>Read</button></td>';
+								//modal here
+								echo '<div class="modal fade" id=modal_show'.$row['id'].' role="dialog" style="color:#000;">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							      	<input class="hidden aid" value="'.$row['id'].'"/>
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">'.$row['heading'].'</h4>
+							        </div>
+							        <div class="modal-body">
+							          <p>'.$row['content'].'</p>
+							        </div>
+							        <div class="modal-footer">
+							          	<button  type="button" class="btn btn-default approvebtn" data-dismiss="modal">Approve</button>
+				             			<button type="button"  class="btn btn-default discardbtn" data-dismiss="modal">Discard</button>	
+				
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+						  	</div>';
+
+								 ?>
+								
+							</div>
+						</tr>
+					</tbody>
+
+
+
+
+					<?php
+				}
+				?>
+			</table>
+
+
+								
+
+			
+								<div >
+									<form id="approval" method="POST" action="" >
+												<?php if(isset($_POST['read'])) 
+												{
+												echo '<script type="text/javascript">alert("'.$_POST["t1"].'");</script>';
+
+													?>
+												<div class="form-group">
+													<label><?php echo $_POST['articleheading']; ?></label>
+												</div>
+												<div class="form-group">
+													<textarea name="articlecontent" rows="50%" cols="100%" style="color:black"><?php  echo $_POST['verifycontent']; ?></textarea>
+												</div>
+												<div class="form-group">
+													<input type="hidden" name="articleid" value="<?php echo $_POST['uniqueid']?>">
+												</div>
+												
+												<button  type="submit" class="btn btn-default"  value="Approve" data-dismiss="modal">Approve</button>
+												<button type="submit"  class="btn btn-default"  value="Discard" data-dismiss="modal">Discard</button>	
+												<buttton type="button" onclick="showtable();" class="btn btn-default" >Read Another</buttton>
+												<?php }?>
+									</form> 
+								</div>
+
+								<script>
+										function showtable(){
+												document.getElementById('approval').style.display="none";
+
+										}
+									    
+										function hidetable()
+										{
+											document.getElementById("utable").style.display="none";
+
+										//table hide ho jana chahie submit ke baad aur textarea me content dikh jaye jo ho raha bas hide 
+										//ni ho raha hai table 2 sec ke lie hide hota hai fir uske baad page refresh ho jaa rahah hai
+										/*	var x= new.XMLHttpRequest();
+											x.onreadystatechange=function()
+											{
+												if(x.readyState==4)
+													alert(x.responseText);
+
+											}	
+											x.open("POST","admin.php")
+											x.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+											var data=document.getElementsByName("articleheading").value();
+											x.send("t1"+data);
+										}*/
+										}
+
+								</script>
+			
+
+
+				</div>
+			</div>
+		</div>
+		</div>
+</section>
+
+
+<section id="grid">
+	<div class="container">
+		<div class="row animate-in" data-anim-type="fade-in-up">
+			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3>Create Authors</h3>
+					<hr />
+				</div>
+			</div>
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+					<div>
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="name" class="form-control name" name="name" placeholder="Enter name" pattern="[A-Za-z0-9]+{20}" required/>
+						</div>
+						<div class="form-group">
+							<label for="email">Password:</label>
+							<input type="password" class="form-control email" name="email" placeholder="Enter email" pattern="[A-Za-z]+{3}" required/>
+						</div>
+						<div class="form-group">
+							<label for="name">Username</label>
+							<input type="email" class="form-control uname" name="username" placeholder="Enter new user name" pattern="[A-Za-z0-9]+{20}" required/>
+						</div>
+						<div class="form-group">
+							<label for="pwd">Password:</label>
+							<input type="password" class="form-control upass" name="userpass" placeholder="Enter new password" pattern="[A-Za-z]+{3}" required/>
+						</div>
+						<button type="button" class="btn btn-default authcreatebtn" name="create">Create</button>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+</section>
+
+
 </body>
-</html> 
+
+</html>
