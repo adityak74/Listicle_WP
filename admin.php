@@ -332,16 +332,7 @@ if(isset($_POST['create']))
 
 										<tbody>
 											<tr>
-								<!--
-								Each row is a form which displays only   Topicheading & author name & Author Email id. 
-								Read the code. I have there is one input field whose value is the "id" of that article
-								Since each row is a form, when the admin will click the "read" button which is a input button
-								the modal box will be opened and isset($_POST['read']) is used so that that particular form/row's 
-								content(id and article heading and article content) are transfered to that modal box. 
-								In Modal box only Article heading and Article content are displayed 
-								"id" is still hidden.
-								So again when the user will click "verify" or "discard" the control is transfered to top php
-							-->
+								
 							<div id="readform">
 								<td style="color:black;"><?php echo $row['heading']; ?></td>  
 

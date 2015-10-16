@@ -389,7 +389,7 @@
 										echo "<div class='col-xs-12 col-sm-4 col-md-4 col-lg-4 ". $evnt.$i ."'>
 												<div class='work-wrapper'>
 
-													<a class='fancybox-media' title='Image Title Goes Here' href='".$imageLink."'>
+													<a class='fancybox-media' title='Aasyahealthfoundation' href='".$imageLink."'>
 														
 														<img src='".$imageLink."' class='img-responsive img-rounded' alt='' />
 													</a>

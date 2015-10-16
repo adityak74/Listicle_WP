@@ -7,12 +7,12 @@ if(isset($_POST['submit']))
 	$articleAuthorName=$_POST['articleauthorname'];
 	$articleAuthorMail=$_POST['articleauthoremail'];
 
-	if(isset($_POST['tgl']) && $_POST['tgl']==1){
+	/*if(isset($_POST['tgl']) && $_POST['tgl']==1){
 		$articleHeading=$_POST['newheading'];
 	}
-	else{
+	else{*/
 		$articleHeading=$_POST['heading'];
-	}
+	//}
 
 
 
@@ -37,8 +37,8 @@ if(isset($_POST['submit']))
 	$insertquerry=mysql_query($query) or die(mysql_query());
 
 
-unlink($target);//upload the content in the database and delete the file later on to save space
-echo "Done";
+	unlink($target);//upload the content in the database and delete the file later on to save space
+	echo "Done";
 }
 ?>
 
@@ -95,39 +95,37 @@ function createheading()
 	<form name="contentupload" enctype="multipart/form-data" action="" method="post">
 
 		<input id="tgl" name="tgl" type="hidden" value="0">
-		<input id="tgbt" type="button" value="Create New Heading" onclick="createheading()">
+		<!--<input id="tgbt" type="button" value="Create New Heading" onclick="createheading()">-->
 		<hr>
-		<?php
-		include_once 'connection.php';
-		$querry=mysql_query("select distinct heading from articles");
-		if(!$querry)
-			echo "heading name fetch fail";
-		else{
-			$totalHeadings = mysql_num_rows($querry);
-		?>
-		<select id="oldheading" name="heading" style="margin:0 auto;"> Heading Name:
-			<?php
-			while($row = mysql_fetch_array($querry))
-			{
-				?>
-				<option><?php echo $row[0]?></option>
-				<?php
-			}
-			?>
+		<select id="oldheading" name="heading" style="margin:0 auto;" required/> Heading Name:
+				<option>---</option>
+				<option>Disease Awareness</option>
+				<option>Adult Literacy</option>
+				<option>Disease Awareness</option>
+				<option>Citizen Advocacy</option>
+				<option>Blood Donation</option>
+				<option>Affordable Medical Testing</option>
+				<option>Research and Development</option>
+				<option>Child and Women Protection</option>
+				<option>Organ Donation Pledge Drives</option>
+				<option>Food Nourishment Activities</option>
+				<option>ehab of Acid, Rape, Accident Victims</option>
+				<option>Pet Adoption and Rescue</option>
+				<option>Legal Clinic</option>
+				<option>Awareness Campaigns</option>
+				<option>De-Addiction</option>
+				<option>Agricultural Testing</option>
 		</select> 
-		<?php
-		}
-		?>
-
+		
 		<div id="newchild">
 
 		</div>
 		<hr>
 
-		Article Name: <input type="text" name="articlename" placeholder="Enter the Article Name" pattern="[A-Za-z0-9]+{20}"><br>
-		Article Author Name: <input type="text" name="articleauthorname" placeholder="Enter the Author Name" pattern="[A-Za-z0-9]+{20}"><br>
-		Article Author email: <input type="email" name="articleauthoremail"  placeholder="Enter the Author Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ><br>
-		<input type="file" name="fu"><br>
+		Article Name: <input type="text" name="articlename" placeholder="Enter the Article Name" pattern="[A-Za-z0-9]+{20}" required/><br>
+		Article Author Name: <input type="text" name="articleauthorname" placeholder="Enter the Author Name" pattern="[A-Za-z0-9]+{20}" required/><br>
+		Article Author email: <input type="email" name="articleauthoremail"  placeholder="Enter the Author Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+		<input type="file" name="fu" required/><br>
 		<input type="submit" name="submit" value="submit">
 	</form>
 </center>
