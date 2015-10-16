@@ -68,13 +68,13 @@
 				</a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
+								<ul class="nav navbar-nav navbar-right">
 					<!--<li><a href="#home">HOME</a></li>-->
-					<li><a href="#contact">ABOUT US</a></li>
-					<li><a href="#work">WHERE WE WORK</a></li>
 					<li><a href="#grid">WHAT WE DO</a></li>
 					<li><a href="#services">GET INVOLVED</a></li>
-					<li><a href="#team">TEAM</a></li>
+					<li><a href="#work">GALLERY</a></li>
+					<li><a href="#publications">PUBLICATIONS</a></li>
+					<li><a href="#contact">ABOUT US</a></li>
 					<li><a href="#contactUs">CONTACT US</a></li>
 				</ul>
 			</div>
@@ -82,6 +82,339 @@
 		</div>
 	</div>
 	<!--MENU SECTION END-->
+
+	<!--GRID SECTION START-->
+	<section id="grid" >
+		<div class="container">
+			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<h3>WHAT WE DO</h3>
+					<hr />
+
+				</div>
+			</div>
+
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+
+				<a href="content.php?id=Disease Awareness" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Disease Awarenes</h2>
+					<p>Content About Disease Awareness
+					</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Adult Literacy" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Adult Literacy</h2>
+					<p>Content about Adult Literacy
+					</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Citizen Advocacy" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Citizen Advocacy</h2>
+					<p>Content about Citizen Advocacy 
+					</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Blood Donation" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Blood Donation</h2>
+					<p>Content about Blood Donation 
+					</p>
+
+				</div>
+				</a>
+			</div>
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+
+				<a href="content.php?id=Affordable Medical Testing" style="color:white;">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<h2>Affordable Medical Testing</h2>
+					<p>Content About this</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Research and Development" style="color:white;">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<h2>Research and Development</h2>
+					<p>Content About this.
+					</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Child and Women Protection" style="color:white;">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<h2>Child and Women Protection</h2>
+					<p>Content About this.
+					</p>
+
+				</div>
+				</a>
+
+			</div>
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+
+				<a href="content.php?id=Organ Donation Pledge Drives" style="color:white;">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<h2>Organ Donation Pledge Drives</h2>
+					<p>Content About Organ Donation</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Food Nourishment Activities" style="color:white;">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<h2>Food Nourishment Activities</h2>
+					<p>Content About Nourishment 
+					</p>
+
+				</div>
+				</a>
+
+
+			</div>
+
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+
+				<a href="content.php?id=Rehab of Acid, Rape, Accident Victims" style="color:white;">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<h2>Rehab of Acid, Rape, Accident Victims</h2>
+					<p>Content About this</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Pet Adoption and Rescue" style="color:white;">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<h2>Pet Adoption and Rescue</h2>
+					<p>Content About this 
+					</p>
+
+				</div>
+				</a>
+
+
+			</div>
+
+			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+
+				<a href="content.php?id=Legal Clinic" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Legal Clinic</h2>
+					<p>Content About this.
+					</p>
+				</div>
+				</a>
+
+				<a href="content.php?id=Awareness Campaigns" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Awareness Campaigns</h2>
+					<p>Content about.
+					</p>
+				</div>
+				</a>
+
+				<a href="content.php?id=De-Addiction" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>De-Addiction</h2>
+					<p>Content about this. 
+					</p>
+
+				</div>
+				</a>
+
+				<a href="content.php?id=Agricultural Testing" style="color:white;">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<h2>Agricultural Testing</h2>
+					<p>Content about this. 
+					</p>
+
+				</div>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!--GRID SECTION END-->
+
+<!--SERVICE SECTION START-->
+	<section id="services" >
+		<div class="container">
+			<div class="row text-center header">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in" data-anim-type="fade-in-up">
+					<h3>GET INVOLVED</h3>
+					<hr />
+				</div>
+			</div>
+			<div class="row animate-in" data-anim-type="fade-in-up">
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-document"></i>
+							<h3>Where does your money go</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-scissors"></i>
+							<h3>Partnering with corporations</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-clipboard"></i>
+							<h3>Partnering with your Foundation or Trust</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-calendar"></i>
+							<h3>Bequest and Legacies</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-erlenmeyer-flask"></i>
+							<h3>Philanthropy</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+				<a href="#" style="color:white">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<div class="services-wrapper">
+							<i class="ion-monitor"></i>
+							<h3>Shop</h3>
+							Morbi mollis lectus et ipsum sollicitudin varius.
+							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
+						</div>
+					</div>
+				</a>
+
+
+			</div>
+		</div>
+	</section>
+	<!--SERVICE SECTION END-->
+
+	<!--WORK SECTION START-->
+	<section id="work" >
+		<div class="container">
+			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3>GALLERY</h3>
+					<hr />
+				</div>
+			</div>
+			<div class="row text-center animate-in" data-anim-type="fade-in-up" >
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-bottom">
+					<div class="caegories">
+						<?php
+							$eventTitleArray = array('Heart Patient Kids',
+							 'Malaria Awarness',
+							 'Food At Old Age Home',
+							 'Food For Orphans',
+							 'Each 1 Teach 1',
+							 'Food At Old Age Home',
+							 'Food For Orphans',
+							 'Mega Health Camp',
+							 'Flash Mob'
+							);
+							$evnt = "evnt";
+							$events=1;
+							foreach ($eventTitleArray as $title) {
+							
+							if($events==1)
+								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-xs active ">'.$title.'</a>';
+							else
+								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-xs ">'.$title.'</a>';
+							
+
+							$events++;
+							}
+						?>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center animate-in" data-anim-type="fade-in-up" id="work-div">
+						<?php
+							$evnt = "evnt";
+							$ctr=0;
+							$directory = "assets/images/";
+							foreach (glob($directory . "*") as $filename) {
+								$ctr++;
+							} 
+
+
+							for($i=1;$i<=$ctr;$i++){
+
+								$directory = 'assets/images/' . $evnt . $i . '/';
+								$files = glob($directory . '*.jpg',GLOB_NOSORT);
+
+								if ( $files !== false )
+								{
+									//echo $eventTitleArray[$i-1] . "<br>";
+									$filecount = count( $files );
+									//echo $filecount . "<br>";
+									$j=0;
+									while($j<=11 && $j<$filecount){
+										$imageLink = "assets/images/evnt" . $i . "/" . ($j+1) .  ".jpg";
+										$j++;
+										echo "<div class='col-xs-12 col-sm-4 col-md-4 col-lg-4 ". $evnt.$i ."'>
+												<div class='work-wrapper'>
+
+													<a class='fancybox-media' title='Image Title Goes Here' href='".$imageLink."'>
+														
+														<img src='".$imageLink."' class='img-responsive img-rounded' alt='' />
+													</a>
+
+													<h4>Morbi mollis lectus et ipsum</h4>
+												</div>
+											</div>";
+									}
+
+								}
+								else
+								{
+									//echo 0;
+								}
+							}
+						?>
+				
+			</div>
+		</div>
+	</section>
+	<!--WORK SECTION END-->
+	
+
+
+
 	<!--HOME SECTION START-->
 	<div id="home" >
 		<div class="container">
@@ -342,225 +675,6 @@
 				
 
 			</div>
-
-
-		</div>
-	</section>
-	<!--CONTACT SECTION END-->
-	<!--WORK SECTION START-->
-	<section id="work" >
-		<div class="container">
-			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h3>WHERE WE WORK</h3>
-					<hr />
-				</div>
-			</div>
-			<div class="row text-center animate-in" data-anim-type="fade-in-up" >
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-bottom">
-					<div class="caegories">
-						<?php
-							$eventTitleArray = array('Heart Patient Kids',
-							 'Malaria Awarness',
-							 'Food At Old Age Home',
-							 'Food For Orphans(FFO)',
-							 'Each 1 Teach 1(e1t1)',
-							 'Food At Old Age Home(FAOAH)',
-							 'Food For Orphans(FFO)',
-							 'Mega Health Camp(MHC)',
-							 'Flash Mob'
-							);
-							$evnt = "evnt";
-							$events=1;
-							foreach ($eventTitleArray as $title) {
-							
-							if($events==1)
-								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-sm active">'.$title.'</a>';
-							else
-								echo '<a href="#" data-filter=".'.$evnt.$events.'" style="margin:5px" class="btn btn-custom btn-custom-two btn-sm">'.$title.'</a>';
-							
-
-							$events++;
-							}
-						?>
-					</div>
-				</div>
-			</div>
-			<div class="row text-center animate-in" data-anim-type="fade-in-up" id="work-div">
-						<?php
-							$evnt = "evnt";
-							$ctr=0;
-							$directory = "assets/images/";
-							foreach (glob($directory . "*") as $filename) {
-								$ctr++;
-							} 
-
-
-							for($i=1;$i<=$ctr;$i++){
-
-								$directory = 'assets/images/' . $evnt . $i . '/';
-								$files = glob($directory . '*.jpg',GLOB_NOSORT);
-
-								if ( $files !== false )
-								{
-									//echo $eventTitleArray[$i-1] . "<br>";
-									$filecount = count( $files );
-									//echo $filecount . "<br>";
-									$j=0;
-									while($j<=11 && $j<$filecount){
-										$imageLink = "assets/images/evnt" . $i . "/" . ($j+1) .  ".jpg";
-										$j++;
-										echo "<div class='col-xs-12 col-sm-4 col-md-4 col-lg-4 ". $evnt.$i ."'>
-												<div class='work-wrapper'>
-
-													<a class='fancybox-media' title='Image Title Goes Here' href='".$imageLink."'>
-														
-														<img src='".$imageLink."' class='img-responsive img-rounded' alt='' />
-													</a>
-
-													<h4>Morbi mollis lectus et ipsum</h4>
-												</div>
-											</div>";
-									}
-
-								}
-								else
-								{
-									//echo 0;
-								}
-							}
-						?>
-				
-			</div>
-		</div>
-	</section>
-	<!--WORK SECTION END-->
-	<!--GRID SECTION START-->
-	<section id="grid" >
-		<div class="container">
-			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-					<h3>WHAT WE DO</h3>
-					<hr />
-
-				</div>
-			</div>
-
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-			<?php
-			include 'connection.php';
-			$query = 'select distinct heading from articles';
-			$result = mysql_query($query);
-			$count = mysql_num_rows($result);
-
-			while($row = mysql_fetch_array($result)){
-			?>
-			
-			
-				<a href="content.php?id=<?php echo $row[0]; ?>" style="color:white;">
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					<h2><?php echo $row[0]; ?></h2>
-					<p>Content About <?php echo $row[0]; ?>
-					bi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-							bi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-
-					</p>
-
-				</div>
-				</a>
-
-			<?php
-			}
-			?>
-			</div>	
-
-		</div>
-	</section>
-	<!--GRID SECTION END-->
-
-	<!--SERVICE SECTION START-->
-	<section id="services" >
-		<div class="container">
-			<div class="row text-center header">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 animate-in" data-anim-type="fade-in-up">
-					<h3>GET INVOLVED</h3>
-					<hr />
-				</div>
-			</div>
-			<div class="row animate-in" data-anim-type="fade-in-up">
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-document"></i>
-							<h3>Where does your money go</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-scissors"></i>
-							<h3>Partnering with corporations</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-clipboard"></i>
-							<h3>Partnering with your Foundation or Trust</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-calendar"></i>
-							<h3>Bequest and Legacies</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-erlenmeyer-flask"></i>
-							<h3>Philanthropy</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-				<a href="#" style="color:white">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="services-wrapper">
-							<i class="ion-monitor"></i>
-							<h3>Shop</h3>
-							Morbi mollis lectus et ipsum sollicitudin varius.
-							Aliquam tempus ante placerat, consectetur tellus nec, porttitor nulla.
-						</div>
-					</div>
-				</a>
-
-
-			</div>
-		</div>
-	</section>
-	<!--SERVICE SECTION END-->
-
-	<!--TEAM SECTION START-->
-	<section id="team" >
-		<div class="container">
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h3>Meet the Brains behind AASYA</h3>
@@ -568,7 +682,7 @@
 				</div>
 			</div>
 			<div class="row animate-in" data-anim-type="fade-in-up">2
-
+			<br>
 				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<div class="team-wrapper">
 						<div class="team-inner" style="background-image: url('assets/img/team/2.jpg')" >
@@ -628,9 +742,11 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</section>
-	<!--TEAM SECTION END-->
+	<!--CONTACT SECTION END-->
+	
 
 	<section id="contactUs">
 		<div class="container">
@@ -671,4 +787,4 @@
 	
 </body>
 
-</html>
+</html

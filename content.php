@@ -1,3 +1,12 @@
+<?php
+include 'connection.php';
+$topicheading=$_GET['id'];
+$articlefetch=mysql_query("select * from articles where heading='".$topicheading."' and verified=1"); 
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js" >
 <head>
@@ -9,6 +18,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <![endif]-->
 <title>Aasya Health Foundation</title>
+
+	<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
+	<!-- CORE JQUERY -->
+	<script src="assets/js/jquery-1.11.1.js"></script>
+	<!-- BOOTSTRAP SCRIPTS -->
+	<script src="assets/js/bootstrap.js"></script>
+	<!-- EASING SCROLL SCRIPTS PLUGIN -->
+	<script src="assets/js/vegas/jquery.vegas.min.js"></script>
+	<!-- VEGAS SLIDESHOW SCRIPTS -->
+	<script src="assets/js/jquery.easing.min.js"></script>
+	<!-- FANCYBOX PLUGIN -->
+	<script src="assets/js/source/jquery.fancybox.js"></script>
+	<!-- ISOTOPE SCRIPTS -->
+	<script src="assets/js/jquery.isotope.js"></script>
+	<!-- VIEWPORT ANIMATION SCRIPTS   -->
+	<script src="assets/js/appear.min.js"></script>
+	<script src="assets/js/animations.min.js"></script>
+	<!-- CUSTOM SCRIPTS -->
+	<script src="assets/js/custom.js"></script>
+
+
 <!-- BOOTSTRAP CORE CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <!-- ION ICONS STYLES -->
@@ -49,56 +79,49 @@
 	</div>
 
 	<!--GRID SECTION START-->
-	<section id="grid" >
+	<section id="contact" >
 		<div class="container">
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-				<?php
-				$path="Content Editor/".$_GET['id'];
-				$string=file_get_contents($path);
-				?>
-
 
 					<h3>WHAT WE DO</h3>
 					<hr />
 
 				</div>
 			</div>
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-
+			<div class="row animate-in" data-anim-type="fade-in-up">
+			<?php while($result=mysql_fetch_array($articlefetch))
+			{
+				echo $result['aid'];
+				$authquery = "select auth_name from authorsdetails where aid=".$result['aid'];
+				$authorfetch=mysql_query($authquery);
+				$result2=mysql_fetch_array($authorfetch);
+			
+			?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h2><?php echo $_GET['id']?></h2>
-					<p> The following text has come from the file : </p><br>
-					<p><?php echo $string ?></p>
+					<div class="contact-wrapper">
+			
+			
 
-				</div>
-				
-				</div>			
+				<h3><?php   echo $result['article_heading'];?></h3>
+				<br><br>
+				<p><?php   echo $result['content'];?></p>
+				<br><br>
+				<p><?php   echo "Written By : ".$result2['auth_name'];?></p>
+				<!--<p></p>-->
+			
+						
+		
+			</div>
+			</div>
+			<?php }
+			?>
+			
+			</div>
+         
 
 		</div>
 	</section>
-	<!--GRID SECTION END-->
 
-
-	<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
-	<!-- CORE JQUERY -->
-	<script src="assets/js/jquery-1.11.1.js"></script>
-	<!-- BOOTSTRAP SCRIPTS -->
-	<script src="assets/js/bootstrap.js"></script>
-	<!-- EASING SCROLL SCRIPTS PLUGIN -->
-	<script src="assets/js/vegas/jquery.vegas.min.js"></script>
-	<!-- VEGAS SLIDESHOW SCRIPTS -->
-	<script src="assets/js/jquery.easing.min.js"></script>
-	<!-- FANCYBOX PLUGIN -->
-	<script src="assets/js/source/jquery.fancybox.js"></script>
-	<!-- ISOTOPE SCRIPTS -->
-	<script src="assets/js/jquery.isotope.js"></script>
-	<!-- VIEWPORT ANIMATION SCRIPTS   -->
-	<script src="assets/js/appear.min.js"></script>
-	<script src="assets/js/animations.min.js"></script>
-	<!-- CUSTOM SCRIPTS -->
-	<script src="assets/js/custom.js"></script>
 </body>
-
 </html>
