@@ -92,7 +92,7 @@ $articlefetch=mysql_query("select * from articles where heading='".$topicheading
 			<div class="row animate-in" data-anim-type="fade-in-up">
 			<?php while($result=mysql_fetch_array($articlefetch))
 			{
-				echo $result['aid'];
+				//echo $result['aid'];
 				$authquery = "select auth_name from authorsdetails where aid=".$result['aid'];
 				$authorfetch=mysql_query($authquery);
 				$result2=mysql_fetch_array($authorfetch);
