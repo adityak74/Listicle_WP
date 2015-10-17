@@ -5,13 +5,14 @@ if(isset($_POST['adminlogin']))
 	if($_POST['username']=="root" && $_POST['password']=="prabhu")
 	{
 	$_SESSION["username"]=$_POST['username'];
-	$_SESSION["password"]=$_POST['password'];
-	header("location:admin.php");
+	print_r($_SESSION);
+	//header("location:admin.php");
 	}
-	else 
-		echo "<script>";
+	else{ 
+	  echo "<script>";
 	  echo "alert('Login Credentials are wrong')";
 	  echo "</script>";
+	}
 }
 
 //Two buttons in form one for author and one for admin
@@ -24,10 +25,11 @@ if(isset($_POST['authorlogin']))
 	$_SESSION["password"]=$_POST['password'];
 	header("location:authors.php");
 	}
-	else 
-		echo "<script>";
+	else{
+	  echo "<script>";
 	  echo "alert('Login Credentials are wrong')";
 	  echo "</script>";
+	}
 }
 
 

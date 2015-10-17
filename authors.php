@@ -133,8 +133,3 @@ function createheading()
 </center>
 </body>
 </html> 
-
-<?php
-
-session_destroy();
-?>

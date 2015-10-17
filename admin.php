@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['username']) || !isset($_SESSION['password']))
+if(!isset($_SESSION['username']))
 	header("location:login.php");
 
 include 'connection.php';
@@ -235,7 +235,7 @@ $(".authcreatebtn").click(function(){
 					<li><a href="#contact">Dashboard</a></li>
 					<li><a href="#work">Approve Post</a></li>
 					<li><a href="#grid">Create Authors</a></li>
-					<li><a href="logout.php">LOGOUT</li>
+					<li><a href="logout.php">LOGOUT</a></li>
 				</ul>
 			</div>
 
@@ -386,29 +386,7 @@ $(".authcreatebtn").click(function(){
 						}
 						?>
 					</table>
-					<div >
-						<form id="approval" method="POST" action="" >
-							<?php if(isset($_POST['read'])) 
-							{
-								echo '<script type="text/javascript">alert("'.$_POST["t1"].'");</script>';
-
-								?>
-								<div class="form-group">
-									<label><?php echo $_POST['articleheading']; ?></label>
-								</div>
-								<div class="form-group">
-									<textarea name="articlecontent" rows="50%" cols="100%" style="color:black"><?php  echo $_POST['verifycontent']; ?></textarea>
-								</div>
-								<div class="form-group">
-									<input type="hidden" name="articleid" value="<?php echo $_POST['uniqueid']?>">
-								</div>
-
-								<button  type="submit" class="btn btn-default"  value="Approve" data-dismiss="modal">Approve</button>
-								<button type="submit"  class="btn btn-default"  value="Discard" data-dismiss="modal">Discard</button>	
-
-								<?php }?>
-							</form> 
-						</div>
+					
 					</div>
 				</div>
 			</div>
@@ -460,8 +438,3 @@ $(".authcreatebtn").click(function(){
 </body>
 
 </html>
-
-<?php
-
-session_destroy();
-?>

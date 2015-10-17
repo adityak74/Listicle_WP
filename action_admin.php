@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'connection.php';
 
 if(isset($_POST['articleid']) && isset($_POST['action']) && $_POST['action']=="Approve")
