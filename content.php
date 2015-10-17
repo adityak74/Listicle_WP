@@ -107,11 +107,9 @@ $articlefetch=mysql_query("select * from articles where heading='".$topicheading
 				<br><br>
 				<p><?php   echo $result['content'];?></p>
 				<br><br>
-				<p><?php   echo "Written By : ".$result2['auth_name'];?></p>
+				<h4><?php   echo "Written By : ".$result2['auth_name'];?></h4>
+				<h5><?php  echo "Written On: ".$result['timestamp']?></h5><br><br>
 				<!--<p></p>-->
-			
-						
-		
 			</div>
 			</div>
 			<?php }

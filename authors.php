@@ -33,7 +33,7 @@ if(isset($_POST['submit']))
 	//0 is for not verified //create table columns in the same order as over here.
 	$query = "INSERT INTO articles(heading,auth_name,auth_email,article_heading,content,verified) 
 	          VALUES('$articleHeading','$articleAuthorName','$articleAuthorMail','$articleName',
-	          	     '$articleContent',0)";
+	          	     '$articleContent',0,now())";
 	$insertquerry=mysql_query($query) or die(mysql_query());
 
 
