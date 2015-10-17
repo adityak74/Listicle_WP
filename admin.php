@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['username']) || !isset($_SESSION['password']))
+	header("location:login.php");
+
 include 'connection.php';
 
 $unapprovedquerry=mysql_query("select * from articles where verified=0");
@@ -85,125 +89,125 @@ if(isset($_POST['create']))
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
+	<script type="text/javascript">
+		$(document).ready(function(){
 
-		$('.approvebtn').click(function(){
-			articleId = $(this).parent().parent().find('.aid').val();
-			btnname = $(this).html();
-			alert(articleId + "," + btnname);
+			$('.approvebtn').click(function(){
+				articleId = $(this).parent().parent().find('.aid').val();
+				btnname = $(this).html();
+				alert(articleId + "," + btnname);
 
-			$.ajax({
-			url: "action_admin.php",
-			method: "POST",
-			data: 'articleid='+articleId+'&action='+btnname+'',
-			success: function(data){
-				alert(data);
-			},
-			error: function(jqXHR, exception) {
-		             var msg = '';
-		        if (jqXHR.status === 0) {
-		            msg = 'Not connect.\n Verify Network.';
-		        } else if (jqXHR.status == 404) {
-		            msg = 'Requested page not found. [404]';
-		        } else if (jqXHR.status == 500) {
-		            msg = 'Internal Server Error [500].';
-		        } else if (exception === 'parsererror') {
-		            msg = 'Requested JSON parse failed.';
-		        } else if (exception === 'timeout') {
-		            msg = 'Time out error.';
-		        } else if (exception === 'abort') {
-		            msg = 'Ajax request aborted.';
-		        } else {
-		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-		        }
-		        
-		        alert(msg);
-		        
-		        }
-		});
+				$.ajax({
+					url: "action_admin.php",
+					method: "POST",
+					data: 'articleid='+articleId+'&action='+btnname+'',
+					success: function(data){
+						alert(data);
+					},
+					error: function(jqXHR, exception) {
+						var msg = '';
+						if (jqXHR.status === 0) {
+							msg = 'Not connect.\n Verify Network.';
+						} else if (jqXHR.status == 404) {
+							msg = 'Requested page not found. [404]';
+						} else if (jqXHR.status == 500) {
+							msg = 'Internal Server Error [500].';
+						} else if (exception === 'parsererror') {
+							msg = 'Requested JSON parse failed.';
+						} else if (exception === 'timeout') {
+							msg = 'Time out error.';
+						} else if (exception === 'abort') {
+							msg = 'Ajax request aborted.';
+						} else {
+							msg = 'Uncaught Error.\n' + jqXHR.responseText;
+						}
 
-		});
+						alert(msg);
 
-		$('.discardbtn').click(function(){
-			articleId = $(this).parent().parent().find('.aid').val();
-			btnname = $(this).html();
-			alert(articleId + "," + btnname);
+					}
+				});
 
-			$.ajax({
-			url: "action_admin.php",
-			method: "POST",
-			data: 'articleid='+articleId+'&action='+btnname+'',
-			success: function(data){
-				alert(data);
-			},
-			error: function(jqXHR, exception) {
-		             var msg = '';
-		        if (jqXHR.status === 0) {
-		            msg = 'Not connect.\n Verify Network.';
-		        } else if (jqXHR.status == 404) {
-		            msg = 'Requested page not found. [404]';
-		        } else if (jqXHR.status == 500) {
-		            msg = 'Internal Server Error [500].';
-		        } else if (exception === 'parsererror') {
-		            msg = 'Requested JSON parse failed.';
-		        } else if (exception === 'timeout') {
-		            msg = 'Time out error.';
-		        } else if (exception === 'abort') {
-		            msg = 'Ajax request aborted.';
-		        } else {
-		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-		        }
-		        
-		        alert(msg);
-		        
-		        }
-		});
-		});
+			});
 
-	$(".authcreatebtn").click(function(){
-			uname = $(this).parent().find('.uname').val();
-			upass = $(this).parent().find('.upass').val();
-			name = $(this).parent().find('.name').val();
-			email = $(this).parent().find('.email').val();
+$('.discardbtn').click(function(){
+	articleId = $(this).parent().parent().find('.aid').val();
+	btnname = $(this).html();
+	alert(articleId + "," + btnname);
 
-			if(uname=='' || upass=='' || name=='' || email==''){
-				alert("Can't be empty");
-			}else{
+	$.ajax({
+		url: "action_admin.php",
+		method: "POST",
+		data: 'articleid='+articleId+'&action='+btnname+'',
+		success: function(data){
+			alert(data);
+		},
+		error: function(jqXHR, exception) {
+			var msg = '';
+			if (jqXHR.status === 0) {
+				msg = 'Not connect.\n Verify Network.';
+			} else if (jqXHR.status == 404) {
+				msg = 'Requested page not found. [404]';
+			} else if (jqXHR.status == 500) {
+				msg = 'Internal Server Error [500].';
+			} else if (exception === 'parsererror') {
+				msg = 'Requested JSON parse failed.';
+			} else if (exception === 'timeout') {
+				msg = 'Time out error.';
+			} else if (exception === 'abort') {
+				msg = 'Ajax request aborted.';
+			} else {
+				msg = 'Uncaught Error.\n' + jqXHR.responseText;
+			}
+
+			alert(msg);
+
+		}
+	});
+});
+
+$(".authcreatebtn").click(function(){
+	uname = $(this).parent().find('.uname').val();
+	upass = $(this).parent().find('.upass').val();
+	name = $(this).parent().find('.name').val();
+	email = $(this).parent().find('.email').val();
+
+	if(uname=='' || upass=='' || name=='' || email==''){
+		alert("Can't be empty");
+	}else{
 				//alert(uname + "," + upass);
 				$.ajax({
-			url: "action_admin.php",
-			method: "POST",
-			data: 'uname='+uname+'&upass='+upass+'&name='+name+'&email='+email+'',
-			success: function(data){
-				alert(data);
-			},
-			error: function(jqXHR, exception) {
-		             var msg = '';
-		        if (jqXHR.status === 0) {
-		            msg = 'Not connect.\n Verify Network.';
-		        } else if (jqXHR.status == 404) {
-		            msg = 'Requested page not found. [404]';
-		        } else if (jqXHR.status == 500) {
-		            msg = 'Internal Server Error [500].';
-		        } else if (exception === 'parsererror') {
-		            msg = 'Requested JSON parse failed.';
-		        } else if (exception === 'timeout') {
-		            msg = 'Time out error.';
-		        } else if (exception === 'abort') {
-		            msg = 'Ajax request aborted.';
-		        } else {
-		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-		        }
-		        
-		        alert(msg);
-		        
-		        }
+					url: "action_admin.php",
+					method: "POST",
+					data: 'uname='+uname+'&upass='+upass+'&name='+name+'&email='+email+'',
+					success: function(data){
+						alert(data);
+					},
+					error: function(jqXHR, exception) {
+						var msg = '';
+						if (jqXHR.status === 0) {
+							msg = 'Not connect.\n Verify Network.';
+						} else if (jqXHR.status == 404) {
+							msg = 'Requested page not found. [404]';
+						} else if (jqXHR.status == 500) {
+							msg = 'Internal Server Error [500].';
+						} else if (exception === 'parsererror') {
+							msg = 'Requested JSON parse failed.';
+						} else if (exception === 'timeout') {
+							msg = 'Time out error.';
+						} else if (exception === 'abort') {
+							msg = 'Ajax request aborted.';
+						} else {
+							msg = 'Uncaught Error.\n' + jqXHR.responseText;
+						}
+
+						alert(msg);
+
+					}
 				});
 			}
-	});
+		});
 
-	});
+});
 </script>
 </head>
 
@@ -231,6 +235,7 @@ if(isset($_POST['create']))
 					<li><a href="#contact">Dashboard</a></li>
 					<li><a href="#work">Approve Post</a></li>
 					<li><a href="#grid">Create Authors</a></li>
+					<li><a href="logout.php">LOGOUT</li>
 				</ul>
 			</div>
 
@@ -239,7 +244,6 @@ if(isset($_POST['create']))
 
 	<section id="contact" >
 		<div class="container">
-
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h1>DASHBOARD</h1>	
@@ -254,7 +258,7 @@ if(isset($_POST['create']))
 							<div class="light-pricing">
 								<div class="price">
 									<?php 
-										echo $totalarticles;
+									echo $totalarticles;
 									?>
 								</div>
 								<div class="type">
@@ -274,7 +278,7 @@ if(isset($_POST['create']))
 							<div class="light-pricing">
 								<div class="price">
 									<?php
-										echo $totalauthors;
+									echo $totalauthors;
 									?>
 								</div>
 								<div class="type">
@@ -293,210 +297,171 @@ if(isset($_POST['create']))
 					</div>
 				</div>
 			</div>
-			
-			<!--DASHBOARD SECTION END-->
+		</div>
+	</section>
+
+	<!--DASHBOARD SECTION END-->
+	<section id="work">
+		<div class="container">
+			<div class="row animate-in" data-anim-type="fade-in-up">
+				<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3>Unnaproved Post</h3>
+						<hr />
+					</div>
+				</div>
+				<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+						<table class="table table-striped" id="utable">            
+							<thead>
+								<tr>
+									<th>Topic</th>
+									<th>Author Name</th>
+									<th>Author Email</th>
+									<th>Verify</th>
+								</tr>
+							</thead>
 
 
-
-			<section id="work">
-				<div class="container">
-					<div class="row animate-in" data-anim-type="fade-in-up">
-						<div class="row text-center header animate-in" data-anim-type="fade-in-up">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<h3>Unnaproved Post</h3>
-								<hr />
-							</div>
-						</div>
-						<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-							<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-								
-								
-
-								<table class="table table-striped" id="utable">            
-									<thead>
-										<tr>
-											<th>Topic</th>
-											<th>Author Name</th>
-											<th>Author Email</th>
-											<th>Verify</th>
-										</tr>
-									</thead>
-
-
-									<?php
-									while($row = mysql_fetch_array($unapprovedquerry)){
+							<?php
+							while($row = mysql_fetch_array($unapprovedquerry)){
 
 									//echo '<script type="text/javascript">alert("'.$row['auth_name'].$row['auth_email'].'");</script>';
 
-										?>
-
-										<tbody>
-											<tr>
-								
-							<div id="readform">
-								<td style="color:black;"><?php echo $row['heading']; ?></td>  
-
-								<?php
-
-									$authquery = mysql_query("select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid']);
-									$authqueryresults = mysql_fetch_assoc($authquery);
-									//echo "select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid'];
-
 								?>
 
-								<td style="color:black;"><?php echo $authqueryresults['auth_name']; ?></td>  
-								<td style="color:black;"><?php echo $authqueryresults['auth_email']; ?></td> 
-								<input type="hidden" name="articleheading" value="<?php echo $row['article_heading'];?>">
-								<input type="hidden" name="verifycontent" value="<?php echo $row['content'];?>">
-								<input type="hidden" name="uniqueid" value="<?php echo $row['id'];?>">
-								
+								<tbody>
+									<tr>
 
-								<?php echo '<td><button class="btn btn-default" id= "read" name="read" data-toggle="modal" data-target=#modal_show'.$row['id'].'>Read</button></td>';
+										<div id="readform">
+											<td style="color:black;"><?php echo $row['heading']; ?></td>  
+
+											<?php
+
+											$authquery = mysql_query("select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid']);
+											$authqueryresults = mysql_fetch_assoc($authquery);
+									//echo "select auth_name,auth_email from authorsdetails WHERE aid=".$row['aid'];
+
+											?>
+
+											<td style="color:black;"><?php echo $authqueryresults['auth_name']; ?></td>  
+											<td style="color:black;"><?php echo $authqueryresults['auth_email']; ?></td> 
+											<input type="hidden" name="articleheading" value="<?php echo $row['article_heading'];?>">
+											<input type="hidden" name="verifycontent" value="<?php echo $row['content'];?>">
+											<input type="hidden" name="uniqueid" value="<?php echo $row['id'];?>">
+
+
+											<?php echo '<td><button class="btn btn-default" id= "read" name="read" data-toggle="modal" data-target=#modal_show'.$row['id'].'>Read</button></td>';
 								//modal here
-								echo '<div class="modal fade" id=modal_show'.$row['id'].' role="dialog" style="color:#000;">
-							    <div class="modal-dialog">
-							    
-							      <!-- Modal content-->
-							      <div class="modal-content">
-							      	<input class="hidden aid" value="'.$row['id'].'"/>
-							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal">&times;</button>
-							          <h4 class="modal-title">'.$row['heading'].'</h4>
-							        </div>
-							        <div class="modal-body">
-							          <p>'.$row['content'].'</p>
-							        </div>
-							        <div class="modal-footer">
-							          	<button  type="button" class="btn btn-default approvebtn" data-dismiss="modal">Approve</button>
-				             			<button type="button"  class="btn btn-default discardbtn" data-dismiss="modal">Discard</button>	
-				
-							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        </div>
-							      </div>
-							      
-							    </div>
-						  	</div>';
+											echo '<div class="modal fade" id=modal_show'.$row['id'].' role="dialog" style="color:#000;">
+											<div class="modal-dialog">
 
-								 ?>
-								
-							</div>
-						</tr>
-					</tbody>
+												<!-- Modal content-->
+												<div class="modal-content">
+													<input class="hidden aid" value="'.$row['id'].'"/>
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">'.$row['heading'].'</h4>
+													</div>
+													<div class="modal-body">
+														<p>'.$row['content'].'</p>
+													</div>
+													<div class="modal-footer">
+														<button  type="button" class="btn btn-default approvebtn" data-dismiss="modal">Approve</button>
+														<button type="button"  class="btn btn-default discardbtn" data-dismiss="modal">Discard</button>	
 
-
-
-
-					<?php
-				}
-				?>
-			</table>
-
-
-								
-
-			
-								<div >
-									<form id="approval" method="POST" action="" >
-												<?php if(isset($_POST['read'])) 
-												{
-												echo '<script type="text/javascript">alert("'.$_POST["t1"].'");</script>';
-
-													?>
-												<div class="form-group">
-													<label><?php echo $_POST['articleheading']; ?></label>
+														<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													</div>
 												</div>
-												<div class="form-group">
-													<textarea name="articlecontent" rows="50%" cols="100%" style="color:black"><?php  echo $_POST['verifycontent']; ?></textarea>
-												</div>
-												<div class="form-group">
-													<input type="hidden" name="articleid" value="<?php echo $_POST['uniqueid']?>">
-												</div>
-												
-												<button  type="submit" class="btn btn-default"  value="Approve" data-dismiss="modal">Approve</button>
-												<button type="submit"  class="btn btn-default"  value="Discard" data-dismiss="modal">Discard</button>	
-												<buttton type="button" onclick="showtable();" class="btn btn-default" >Read Another</buttton>
-												<?php }?>
-									</form> 
+
+											</div>
+										</div>';
+
+										?>
+
+									</div>
+								</tr>
+							</tbody>
+							<?php
+						}
+						?>
+					</table>
+					<div >
+						<form id="approval" method="POST" action="" >
+							<?php if(isset($_POST['read'])) 
+							{
+								echo '<script type="text/javascript">alert("'.$_POST["t1"].'");</script>';
+
+								?>
+								<div class="form-group">
+									<label><?php echo $_POST['articleheading']; ?></label>
+								</div>
+								<div class="form-group">
+									<textarea name="articlecontent" rows="50%" cols="100%" style="color:black"><?php  echo $_POST['verifycontent']; ?></textarea>
+								</div>
+								<div class="form-group">
+									<input type="hidden" name="articleid" value="<?php echo $_POST['uniqueid']?>">
 								</div>
 
-								<script>
-										function showtable(){
-												document.getElementById('approval').style.display="none";
+								<button  type="submit" class="btn btn-default"  value="Approve" data-dismiss="modal">Approve</button>
+								<button type="submit"  class="btn btn-default"  value="Discard" data-dismiss="modal">Discard</button>	
 
-										}
-									    
-										function hidetable()
-										{
-											document.getElementById("utable").style.display="none";
-
-										//table hide ho jana chahie submit ke baad aur textarea me content dikh jaye jo ho raha bas hide 
-										//ni ho raha hai table 2 sec ke lie hide hota hai fir uske baad page refresh ho jaa rahah hai
-										/*	var x= new.XMLHttpRequest();
-											x.onreadystatechange=function()
-											{
-												if(x.readyState==4)
-													alert(x.responseText);
-
-											}	
-											x.open("POST","admin.php")
-											x.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-											var data=document.getElementsByName("articleheading").value();
-											x.send("t1"+data);
-										}*/
-										}
-
-								</script>
-			
-
-
-				</div>
-			</div>
-		</div>
-		</div>
-</section>
-
-
-<section id="grid">
-	<div class="container">
-		<div class="row animate-in" data-anim-type="fade-in-up">
-			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h3>Create Authors</h3>
-					<hr />
-				</div>
-			</div>
-			<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
-				<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-
-					<div>
-						<div class="form-group">
-							<label for="name">Name</label>
-							<input type="name" class="form-control name" name="name" placeholder="Enter name" pattern="[A-Za-z0-9]+{20}" required/>
+								<?php }?>
+							</form> 
 						</div>
-						<div class="form-group">
-							<label for="email">Password:</label>
-							<input type="password" class="form-control email" name="email" placeholder="Enter email" pattern="[A-Za-z]+{3}" required/>
-						</div>
-						<div class="form-group">
-							<label for="name">Username</label>
-							<input type="email" class="form-control uname" name="username" placeholder="Enter new user name" pattern="[A-Za-z0-9]+{20}" required/>
-						</div>
-						<div class="form-group">
-							<label for="pwd">Password:</label>
-							<input type="password" class="form-control upass" name="userpass" placeholder="Enter new password" pattern="[A-Za-z]+{3}" required/>
-						</div>
-						<button type="button" class="btn btn-default authcreatebtn" name="create">Create</button>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
-	</div>
+	</section>
 
-</section>
+
+	<section id="grid">
+		<div class="container">
+			<div class="row animate-in" data-anim-type="fade-in-up">
+				<div class="row text-center header animate-in" data-anim-type="fade-in-up">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3>Create Authors</h3>
+						<hr />
+					</div>
+				</div>
+				<div class="row pad-bottom animate-in" data-anim-type="fade-in-up">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+						<div>
+							<div class="form-group">
+								<label for="name">Name</label>
+								<input type="name" class="form-control name" name="name" placeholder="Enter name" pattern="[A-Za-z0-9]+{20}" required/>
+							</div>
+							<div class="form-group">
+								<label for="email">Password:</label>
+								<input type="password" class="form-control email" name="email" placeholder="Enter email" pattern="[A-Za-z]+{3}" required/>
+							</div>
+							<div class="form-group">
+								<label for="name">Username</label>
+								<input type="email" class="form-control uname" name="username" placeholder="Enter new user name" pattern="[A-Za-z0-9]+{20}" required/>
+							</div>
+							<div class="form-group">
+								<label for="pwd">Password:</label>
+								<input type="password" class="form-control upass" name="userpass" placeholder="Enter new password" pattern="[A-Za-z]+{3}" required/>
+							</div>
+							<button type="button" class="btn btn-default authcreatebtn" name="create">Create</button>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+	</section>
 
 
 </body>
 
 </html>
+
+<?php
+
+session_destroy();
+?>

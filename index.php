@@ -76,6 +76,7 @@
 					<li><a href="#publications">PUBLICATIONS</a></li>
 					<li><a href="#contact">ABOUT US</a></li>
 					<li><a href="#contactUs">CONTACT US</a></li>
+					<li><a href="login.php">LOGIN</a></li>
 				</ul>
 			</div>
 

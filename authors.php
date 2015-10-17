@@ -1,5 +1,7 @@
 <?php
-//Database name=aasya table name=content;
+session_start();
+if(!isset($_SESSION['username']) || !isset($_SESSION['password']))
+		header("location:login.php");
 
 if(isset($_POST['submit']))
 {
@@ -131,3 +133,8 @@ function createheading()
 </center>
 </body>
 </html> 
+
+<?php
+
+session_destroy();
+?>
