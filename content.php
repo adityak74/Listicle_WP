@@ -2,7 +2,7 @@
 include 'connection.php';
 $topicheading=$_GET['id'];
 $articlefetch=mysql_query("select * from articles where heading='".$topicheading."' and verified=1"); 
-
+$articlecount = mysql_num_rows($articlefetch);
 ?>
 
 
@@ -84,13 +84,15 @@ $articlefetch=mysql_query("select * from articles where heading='".$topicheading
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-					<h3>WHAT WE DO</h3>
+					<h3><?php echo $_GET['id']; ?></h3>
 					<hr />
 
 				</div>
 			</div>
 			<div class="row animate-in" data-anim-type="fade-in-up">
-			<?php while($result=mysql_fetch_array($articlefetch))
+			<?php 
+			if($articlecount>0)
+			while($result=mysql_fetch_array($articlefetch))
 			{
 				//echo $result['aid'];
 				$authquery = "select auth_name from authorsdetails where aid=".$result['aid'];
@@ -103,16 +105,23 @@ $articlefetch=mysql_query("select * from articles where heading='".$topicheading
 			
 			
 
-				<h3><?php   echo $result['article_heading'];?></h3>
+				<h3><?php echo $result['article_heading'];?></h3>
 				<br><br>
-				<p><?php   echo $result['content'];?></p>
+				<p><?php echo $result['content'];?></p>
 				<br><br>
-				<h4><?php   echo "Written By : ".$result2['auth_name'];?></h4>
-				<h5><?php  echo "Written On: ".$result['timestamp']?></h5><br><br>
+				<h4><?php echo "Written By : ".$result2['auth_name'];?></h4>
+				<h5><?php echo "Written On: ".$result['timestamp']?></h5><br><br>
 				<!--<p></p>-->
 			</div>
 			</div>
-			<?php }
+			<?php 
+			}else{
+				echo '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="contact-wrapper">
+					<h2>No articles yet.Come back soon!!!</h2>
+					</div>
+					</div>';
+			}
 			?>
 			
 			</div>
