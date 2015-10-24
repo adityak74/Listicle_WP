@@ -1,8 +1,6 @@
 <?php
-include 'connection.php';
 $topicheading=$_GET['id'];
-$articlefetch=mysql_query("select * from articles where heading='".$topicheading."' and verified=1"); 
-$articlecount = mysql_num_rows($articlefetch);
+require ('wp-blog-header.php');
 ?>
 
 
@@ -84,44 +82,38 @@ $articlecount = mysql_num_rows($articlefetch);
 			<div class="row text-center header animate-in" data-anim-type="fade-in-up">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-					<h3><?php echo $_GET['id']; ?></h3>
+					<h3><?php echo $topicheading ?></h3>
 					<hr />
 
 				</div>
 			</div>
 			<div class="row animate-in" data-anim-type="fade-in-up">
 			<?php 
-			if($articlecount>0)
-			while($result=mysql_fetch_array($articlefetch))
-			{
-				//echo $result['aid'];
-				$authquery = "select auth_name from authorsdetails where aid=".$result['aid'];
-				$authorfetch=mysql_query($authquery);
-				$result2=mysql_fetch_array($authorfetch);
-			
+			$args = array('post_status'=>"publish",'post_type'=>"post",'orderby'=>"post_date", 'category_name'=> $topicheading);
+			$postslist = get_posts( $args );
+			//if($postslist){
+
+			foreach ($postslist as $post) :  setup_postdata($post);
 			?>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="contact-wrapper">
-			
-			
-
-				<h3><?php echo $result['article_heading'];?></h3>
+				<h3><?php the_title(); ?></h3>
 				<br><br>
-				<p><?php echo $result['content'];?></p>
+				<p><?php echo get_the_content('Read more')?></p>
 				<br><br>
-				<h4><?php echo "Written By : ".$result2['auth_name'];?></h4>
-				<h5><?php echo "Written On: ".$result['timestamp']?></h5><br><br>
-				<!--<p></p>-->
+				<h4><?php echo "Written By : "?> <?php the_author();?></h4>
+				<h5><?php echo "Written On: " ?> <?php the_time('l, F jS, Y')?></h5><br><br>
 			</div>
 			</div>
-			<?php 
-			}else{
+			<?php endforeach;
+	//	}
+			/*else{
 				echo '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="contact-wrapper">
 					<h2>No articles yet.Come back soon!!!</h2>
 					</div>
 					</div>';
-			}
+			}*/
 			?>
 			
 			</div>

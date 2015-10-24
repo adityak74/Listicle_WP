@@ -4,6 +4,7 @@ if(!isset($_SESSION['username']))
 	header("location:login.php");
 
 include 'connection.php';
+//require ('wp-blog-header.php')
 
 $unapprovedquerry=mysql_query("select * from articles where verified=0");
 $approvedquerystats = mysql_query("select * from articles where verified=1");
